@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Smarter Software in the Age of AI</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --surface: #101b2d;
+        --surface-2: #16253b;
+        --text: #f5f7fa;
+        --muted: #9eb0c8;
+        --accent: #63e6be;
+        --accent-2: #74a9ff;
+        --border: rgba(255,255,255,0.12);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg), #0f1a2c 55%, #131f34);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .page {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        background: rgba(16, 27, 45, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(99, 230, 190, 0.14);
+        color: var(--accent);
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        line-height: 1.1;
+        margin: 0 0 14px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 720px;
+        font-size: 1.05rem;
+      }
+
+      .meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-top: 16px;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+      }
+
+      article, aside {
+        background: rgba(16, 27, 45, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      }
+
+      h2, h3 {
+        margin-top: 0;
+        line-height: 1.25;
+      }
+
+      p, li {
+        color: #dce7f5;
+      }
+
+      .callout {
+        background: linear-gradient(135deg, rgba(116, 169, 255, 0.15), rgba(99, 230, 190, 0.12));
+        border-left: 4px solid var(--accent);
+        padding: 14px 16px;
+        border-radius: 12px;
+        margin: 20px 0;
+      }
+
+      pre {
+        background: #030812;
+        border-radius: 12px;
+        padding: 16px;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+      }
+
+      code {
+        font-family: "Fira Code", Consolas, monospace;
+        color: var(--accent);
+      }
+
+      .sidebar-card {
+        margin-bottom: 16px;
+        padding: 16px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+      }
+
+      .sidebar-card h3 {
+        margin-bottom: 8px;
+      }
+
+      ul { padding-left: 18px; }
+
+      @media (max-width: 900px) {
+        .content { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="eyebrow">Engineering • AI • Product</div>
+        <h1>Building Smarter Software in the Age of AI</h1>
+        <p>
+          Modern teams are shipping faster, but speed without clarity can create technical debt.
+          The most effective engineering organizations are using AI to amplify thoughtful design,
+          not replace it.
+        </p>
+        <div class="meta">
+          <span>By Alex Chen</span>
+          <span>•</span>
+          <span>July 5, 2026</span>
+          <span>•</span>
+          <span>8 min read</span>
+        </div>
+      </header>
+
+      <div class="content">
+        <article>
+          <h2>Why AI is changing the way we build</h2>
+          <p>
+            Artificial intelligence is no longer a futuristic concept reserved for research labs.
+            It has become a practical tool for developers, product teams, and operations leaders.
+            From code generation to bug detection and smarter automation, AI is reshaping how software is designed, tested, and maintained.
+          </p>
+
+          <p>
+            The biggest advantage is not just speed. It is the ability to reduce repetitive work and give engineers more time to focus on architecture, user experience, and solving meaningful problems.
+          </p>
+
+          <div class="callout">
+            <strong>Key takeaway:</strong> AI works best when it augments human judgment rather than replaces it.
+          </div>
+
+          <h3>A practical workflow for modern teams</h3>
+          <p>
+            The most successful teams combine AI tools with strong engineering discipline. A simple workflow might look like this:
+          </p>
+          <ul>
+            <li>Use AI to draft boilerplate, tests, and documentation.</li>
+            <li>Review outputs carefully for correctness, security, and maintainability.</li>
+            <li>Integrate changes into a robust CI pipeline.</li>
+            <li>Measure performance and gather feedback from real users.</li>
+          </ul>
+
+          <pre><code>def build_feature(spec):
+    plan = draft_plan(spec)
+    tests = generate_tests(plan)
+    review = validate_quality(plan, tests)
+    return ship(review)</code></pre>
+
+          <p>
+            That balance matters. Developers still need to understand tradeoffs, edge cases, and system constraints. AI can accelerate the process, but human oversight remains essential.
+          </p>
+
+          <h3>What to watch out for</h3>
+          <p>
+            As with any powerful technology, AI introduces new challenges. Teams should stay mindful of data privacy, hallucinated outputs, and over-reliance on generated code.
+            The right approach is to build a culture of review, verification, and continuous learning.
+          </p>
+        </article>
+
+        <aside>
+          <div class="sidebar-card">
+            <h3>In this article</h3>
+            <ul>
+              <li>How AI is changing software development</li>
+              <li>Best practices for using AI responsibly</li>
+              <li>What high-performing teams are doing differently</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Best practices</h3>
+            <ul>
+              <li>Keep a human in the loop</li>
+              <li>Review generated code thoroughly</li>
+              <li>Use AI for repetitive tasks, not critical thinking</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Looking ahead</h3>
+            <p>
+              The companies that win will be the ones that use AI to remove friction while preserving quality, trust, and creativity.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contributor Posts | Tech Blog</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --surface: #101b2d;
+        --surface-2: #16253b;
+        --text: #f5f7fa;
+        --muted: #9eb0c8;
+        --accent: #63e6be;
+        --accent-2: #74a9ff;
+        --border: rgba(255,255,255,0.12);
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg), #0f1a2c 55%, #131f34);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .page {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        padding: 14px 18px;
+        background: rgba(16, 27, 45, 0.86);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
+
+      .brand {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .nav a {
+        margin-left: 16px;
+        color: var(--muted);
+      }
+
+      .hero {
+        background: rgba(16, 27, 45, 0.94);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 36px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(99, 230, 190, 0.14);
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        line-height: 1.15;
+        margin: 0 0 12px;
+      }
+
+      .hero p {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #031018;
+        font-weight: 700;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr;
+        gap: 24px;
+      }
+
+      .card, .sidebar-card {
+        background: rgba(16, 27, 45, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      }
+
+      .featured {
+        padding: 24px;
+      }
+
+      .featured h2, .sidebar-card h3 {
+        margin-top: 0;
+      }
+
+      .post-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .post-card {
+        padding: 18px;
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+      }
+
+      .post-card h3 {
+        margin: 0 0 8px;
+      }
+
+      .post-card p {
+        color: var(--muted);
+        margin: 0 0 10px;
+      }
+
+      .sidebar-card {
+        padding: 20px;
+        margin-bottom: 16px;
+      }
+
+      .sidebar-card ul {
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 24px 0 8px;
+      }
+
+      @media (max-width: 900px) {
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">Contributor Posts</div>
+        <nav class="nav">
+          <a href="#latest">Latest</a>
+          <a href="#topics">Topics</a>
+          <a href="#about">About</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">Technology • Insights • Product</div>
+        <h1>Stories, ideas, and practical lessons from modern software teams.</h1>
+        <p>
+          Contributor Posts is a modern tech blog for developers, designers, and builders who want clear insights on AI, cloud, product strategy, and engineering excellence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#latest">Explore Articles</a>
+          <a class="btn secondary" href="post-3.html">Read the latest post</a>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="card featured" id="latest">
+          <div class="eyebrow">Featured Article</div>
+          <h2>How modern teams are shipping faster with thoughtful automation</h2>
+          <p>
+            The most effective engineering organizations are pairing automation with human judgment to improve delivery without sacrificing quality.
+          </p>
+          <div class="post-list">
+            <div class="post-card">
+              <h3>The Future of Cloud Computing</h3>
+              <p>Explore how edge architecture and resilient platforms are reshaping enterprise software.</p>
+              <a href="post-1.html">Read article →</a>
+            </div>
+            <div class="post-card">
+              <h3>Designing Faster APIs for Modern Products</h3>
+              <p>Learn how streamlined APIs improve performance, developer experience, and scalability.</p>
+              <a href="post-2.html">Read article →</a>
+            </div>
+            <div class="post-card">
+              <h3>Using AI Responsibly in Everyday Development</h3>
+              <p>Practical guidance for applying AI tools in code reviews, documentation, and workflow design.</p>
+              <a href="post-3.html">Read article →</a>
+            </div>
+          </div>
+        </section>
+
+        <aside>
+          <div class="sidebar-card" id="topics">
+            <h3>Popular Topics</h3>
+            <ul>
+              <li>AI and developer workflows</li>
+              <li>Cloud-native infrastructure</li>
+              <li>Frontend performance</li>
+              <li>Product engineering</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card" id="about">
+            <h3>About Contributor Posts</h3>
+            <p>
+              We publish clear, practical writing for people building ambitious digital products in a fast-moving technology landscape.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <p>Contributor Posts © 2026 · Built for thoughtful readers and modern teams.</p>
+      </footer>
+    </div>
+  </body>
+</html>
