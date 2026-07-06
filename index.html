@@ -4,25 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contributor Posts | Tech Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --bg: #07111f;
-        --surface: #101b2d;
-        --surface-2: #16253b;
-        --text: #f5f7fa;
-        --muted: #9eb0c8;
-        --accent: #63e6be;
-        --accent-2: #74a9ff;
-        --border: rgba(255,255,255,0.12);
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --surface-2: #f4f2ec;
+        --ink: #1c2126;
+        --muted: #5b6470;
+        --line: #e4e1d8;
+        --accent: #1f5f4f;
+        --accent-ink: #ffffff;
+        --accent-soft: #e7efe9;
+        --gold: #b8860b;
       }
 
       * { box-sizing: border-box; }
+
       body {
         margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        background: linear-gradient(135deg, var(--bg), #0f1a2c 55%, #131f34);
-        color: var(--text);
-        line-height: 1.7;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.65;
+      }
+
+      h1, h2, h3 {
+        font-family: "Source Serif 4", Georgia, serif;
+        color: var(--ink);
+        letter-spacing: -0.01em;
       }
 
       a { color: var(--accent); text-decoration: none; }
@@ -31,197 +43,342 @@
       .page {
         max-width: 1180px;
         margin: 0 auto;
-        padding: 24px;
+        padding: 0 24px;
       }
 
+      /* ---------- Header ---------- */
       .topbar {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 18px 24px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 24px;
-        padding: 14px 18px;
-        background: rgba(16, 27, 45, 0.86);
-        border: 1px solid var(--border);
-        border-radius: 999px;
       }
 
       .brand {
-        font-size: 1.2rem;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.5rem;
         font-weight: 700;
-        letter-spacing: 0.04em;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .brand span { color: var(--accent); }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
       }
 
       .nav a {
-        margin-left: 16px;
         color: var(--muted);
+        font-weight: 500;
+        font-size: 0.95rem;
       }
 
+      .nav a:hover { color: var(--ink); text-decoration: none; }
+
+      .btn-contact {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: var(--accent);
+        color: var(--accent-ink) !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .btn-contact:hover { background: #17493d; text-decoration: none; }
+
+      /* ---------- Hero ---------- */
       .hero {
-        background: rgba(16, 27, 45, 0.94);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 36px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-        margin-bottom: 24px;
+        padding: 64px 0 48px;
+        border-bottom: 1px solid var(--line);
       }
 
       .eyebrow {
-        display: inline-block;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(99, 230, 190, 0.14);
-        color: var(--accent);
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        margin-bottom: 12px;
+        color: var(--accent);
+        margin-bottom: 18px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background: var(--accent);
+        display: inline-block;
       }
 
       h1 {
-        font-size: clamp(2rem, 3vw, 3rem);
+        font-size: clamp(2.1rem, 4vw, 3.2rem);
         line-height: 1.15;
-        margin: 0 0 12px;
+        margin: 0 0 18px;
+        max-width: 20ch;
       }
 
       .hero p {
-        max-width: 760px;
+        max-width: 620px;
         color: var(--muted);
-        font-size: 1.05rem;
-        margin-bottom: 18px;
+        font-size: 1.1rem;
+        margin-bottom: 28px;
       }
 
       .hero-actions {
         display: flex;
-        gap: 12px;
+        gap: 14px;
         flex-wrap: wrap;
       }
 
       .btn {
         display: inline-block;
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: var(--accent);
-        color: #031018;
-        font-weight: 700;
+        padding: 12px 22px;
+        border-radius: 6px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
       }
+
+      .btn:hover { background: #000; text-decoration: none; }
 
       .btn.secondary {
         background: transparent;
-        color: var(--text);
-        border: 1px solid var(--border);
+        color: var(--ink);
+        border: 1px solid var(--line);
       }
 
+      .btn.secondary:hover {
+        border-color: var(--ink);
+        text-decoration: none;
+      }
+
+      /* ---------- Content grid ---------- */
       .grid {
         display: grid;
-        grid-template-columns: 1.4fr 0.8fr;
-        gap: 24px;
+        grid-template-columns: 1.5fr 0.85fr;
+        gap: 48px;
+        padding: 48px 0 64px;
       }
 
-      .card, .sidebar-card {
-        background: rgba(16, 27, 45, 0.9);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      .section-label {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
 
-      .featured {
-        padding: 24px;
-      }
-
-      .featured h2, .sidebar-card h3 {
-        margin-top: 0;
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
       }
 
       .post-list {
         display: grid;
-        gap: 16px;
-        margin-top: 18px;
+        gap: 22px;
       }
 
       .post-card {
-        padding: 18px;
-        background: var(--surface-2);
-        border: 1px solid var(--border);
-        border-radius: 16px;
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 20px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .post-card:last-child { border-bottom: none; padding-bottom: 0; }
+
+      .post-index {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 2.2rem;
+        color: var(--line);
+        font-weight: 600;
+        line-height: 1;
       }
 
       .post-card h3 {
         margin: 0 0 8px;
+        font-size: 1.25rem;
       }
 
       .post-card p {
         color: var(--muted);
         margin: 0 0 10px;
+        font-size: 0.98rem;
       }
 
+      .post-card .read-more {
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      /* ---------- Sidebar ---------- */
       .sidebar-card {
-        padding: 20px;
-        margin-bottom: 16px;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 24px;
+        margin-bottom: 20px;
+      }
+
+      .sidebar-card h3 {
+        margin-top: 0;
+        font-size: 1.1rem;
+        margin-bottom: 14px;
       }
 
       .sidebar-card ul {
-        padding-left: 18px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
         color: var(--muted);
       }
 
-      footer {
-        text-align: center;
+      .sidebar-card ul li {
+        padding: 9px 0;
+        border-bottom: 1px dashed var(--line);
+        font-size: 0.95rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .sidebar-card ul li:last-child { border-bottom: none; }
+
+      .sidebar-card p {
         color: var(--muted);
-        padding: 24px 0 8px;
+        font-size: 0.95rem;
+      }
+
+      .contact-card {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+      }
+
+      .contact-card h3 { color: #fff; }
+      .contact-card p { color: rgba(255,255,255,0.82); }
+
+      .contact-card .btn {
+        background: #fff;
+        color: var(--accent);
+        margin-top: 6px;
+      }
+
+      .contact-card .btn:hover { background: var(--accent-soft); }
+
+      /* ---------- Footer ---------- */
+      footer {
+        border-top: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .footer-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .footer-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .footer-contact {
+        font-size: 0.9rem;
+        font-weight: 600;
       }
 
       @media (max-width: 900px) {
         .grid { grid-template-columns: 1fr; }
+        .nav a:not(.btn-contact) { display: none; }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header class="topbar">
-        <div class="brand">Contributor Posts</div>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">Contributor<span> Posts</span></div>
         <nav class="nav">
           <a href="#latest">Latest</a>
           <a href="#topics">Topics</a>
           <a href="#about">About</a>
+          <a class="btn-contact" href="mailto:brandingbuzzagency@gmail.com">Contact Us</a>
         </nav>
-      </header>
+      </div>
+    </header>
 
+    <div class="page">
       <section class="hero">
-        <div class="eyebrow">Technology • Insights • Product</div>
-        <h1>Stories, ideas, and practical lessons from modern software teams.</h1>
+        <div class="eyebrow">Technology · Insights · Product</div>
+        <h1>Stories and practical lessons from modern software teams.</h1>
         <p>
-          Contributor Posts is a modern tech blog for developers, designers, and builders who want clear insights on AI, cloud, product strategy, and engineering excellence.
+          Contributor Posts is a professional tech blog for developers, designers, and builders who want clear, well-researched insights on AI, cloud, product strategy, and engineering excellence.
         </p>
         <div class="hero-actions">
           <a class="btn" href="#latest">Explore Articles</a>
-          <a class="btn secondary" href="post-3.html">Read the latest post</a>
+          <a class="btn secondary" href="post-3.html">Read the Latest Post</a>
         </div>
       </section>
 
       <div class="grid">
-        <section class="card featured" id="latest">
-          <div class="eyebrow">Featured Article</div>
-          <h2>How modern teams are shipping faster with thoughtful automation</h2>
-          <p>
-            The most effective engineering organizations are pairing automation with human judgment to improve delivery without sacrificing quality.
-          </p>
+        <section id="latest">
+          <div class="section-label">Featured Articles</div>
           <div class="post-list">
             <div class="post-card">
-              <h3>The Future of Cloud Computing</h3>
-              <p>Explore how edge architecture and resilient platforms are reshaping enterprise software.</p>
-              <a href="post-1.html">Read article →</a>
+              <div class="post-index">01</div>
+              <div>
+                <h3>The Future of Cloud Computing</h3>
+                <p>Explore how edge architecture and resilient platforms are reshaping enterprise software.</p>
+                <a class="read-more" href="post-1.html">Read article →</a>
+              </div>
             </div>
             <div class="post-card">
-              <h3>Designing Faster APIs for Modern Products</h3>
-              <p>Learn how streamlined APIs improve performance, developer experience, and scalability.</p>
-              <a href="post-2.html">Read article →</a>
+              <div class="post-index">02</div>
+              <div>
+                <h3>Designing Faster APIs for Modern Products</h3>
+                <p>Learn how streamlined APIs improve performance, developer experience, and scalability.</p>
+                <a class="read-more" href="post-2.html">Read article →</a>
+              </div>
             </div>
             <div class="post-card">
-              <h3>Using AI Responsibly in Everyday Development</h3>
-              <p>Practical guidance for applying AI tools in code reviews, documentation, and workflow design.</p>
-              <a href="post-3.html">Read article →</a>
+              <div class="post-index">03</div>
+              <div>
+                <h3>Using AI Responsibly in Everyday Development</h3>
+                <p>Practical guidance for applying AI tools in code reviews, documentation, and workflow design.</p>
+                <a class="read-more" href="post-3.html">Read article →</a>
+              </div>
             </div>
           </div>
         </section>
@@ -230,7 +387,7 @@
           <div class="sidebar-card" id="topics">
             <h3>Popular Topics</h3>
             <ul>
-              <li>AI and developer workflows</li>
+              <li>AI &amp; developer workflows</li>
               <li>Cloud-native infrastructure</li>
               <li>Frontend performance</li>
               <li>Product engineering</li>
@@ -243,12 +400,22 @@
               We publish clear, practical writing for people building ambitious digital products in a fast-moving technology landscape.
             </p>
           </div>
+
+          <div class="sidebar-card contact-card">
+            <h3>Want to contribute?</h3>
+            <p>Pitch an article or get in touch with our editorial team.</p>
+            <a class="btn" href="mailto:brandingbuzzagency@gmail.com">Email Us</a>
+          </div>
         </aside>
       </div>
-
-      <footer>
-        <p>Contributor Posts © 2026 · Built for thoughtful readers and modern teams.</p>
-      </footer>
     </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">Contributor Posts</div>
+        <div class="footer-meta">© 2026 Contributor Posts · Built for thoughtful readers and modern teams.</div>
+        <a class="footer-contact" href="mailto:brandingbuzzagency@gmail.com">brandingbuzzagency@gmail.com</a>
+      </div>
+    </footer>
   </body>
 </html>
