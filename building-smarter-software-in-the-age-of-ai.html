@@ -3,161 +3,373 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Building Smarter Software in the Age of AI</title>
+    <title>Building Smarter Software in the Age of AI | Contributor Posts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
       :root {
-        --bg: #07111f;
-        --surface: #101b2d;
-        --surface-2: #16253b;
-        --text: #f5f7fa;
-        --muted: #9eb0c8;
-        --accent: #63e6be;
-        --accent-2: #74a9ff;
-        --border: rgba(255,255,255,0.12);
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --surface-2: #f4f2ec;
+        --ink: #1c2126;
+        --muted: #5b6470;
+        --line: #e4e1d8;
+        --accent: #1f5f4f;
+        --accent-ink: #ffffff;
+        --accent-soft: #e7efe9;
       }
 
       * { box-sizing: border-box; }
+
       body {
         margin: 0;
-        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-        background: linear-gradient(135deg, var(--bg), #0f1a2c 55%, #131f34);
-        color: var(--text);
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
         line-height: 1.7;
+      }
+
+      h1, h2, h3 {
+        font-family: "Source Serif 4", Georgia, serif;
+        color: var(--ink);
+        letter-spacing: -0.01em;
       }
 
       a { color: var(--accent); text-decoration: none; }
       a:hover { text-decoration: underline; }
 
       .page {
-        max-width: 1120px;
+        max-width: 1180px;
         margin: 0 auto;
-        padding: 24px;
+        padding: 0 24px;
       }
 
-      .hero {
-        background: rgba(16, 27, 45, 0.92);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        padding: 32px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-        margin-bottom: 24px;
+      /* ---------- Header (shared) ---------- */
+      .topbar {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
       }
+
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .brand span { color: var(--accent); }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .nav a:hover { color: var(--ink); text-decoration: none; }
+
+      .btn-contact {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: var(--accent);
+        color: var(--accent-ink) !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .btn-contact:hover { background: #17493d; text-decoration: none; }
+
+      /* ---------- Article hero ---------- */
+      .hero {
+        padding: 48px 0 36px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      .breadcrumb a { color: var(--muted); font-weight: 500; }
+      .breadcrumb a:hover { color: var(--accent); }
 
       .eyebrow {
-        display: inline-block;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(99, 230, 190, 0.14);
-        color: var(--accent);
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 12px;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background: var(--accent);
+        display: inline-block;
       }
 
       h1 {
-        font-size: clamp(2rem, 3vw, 3rem);
-        line-height: 1.1;
-        margin: 0 0 14px;
+        font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+        line-height: 1.15;
+        margin: 0 0 16px;
+        max-width: 24ch;
       }
 
-      .hero p {
+      .hero p.dek {
         color: var(--muted);
         max-width: 720px;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
       }
 
       .meta {
         display: flex;
-        gap: 16px;
+        gap: 14px;
         flex-wrap: wrap;
+        align-items: center;
         color: var(--muted);
-        font-size: 0.95rem;
-        margin-top: 16px;
+        font-size: 0.92rem;
       }
 
+      .meta .dot { color: var(--line); }
+
+      .author-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+        margin-right: 6px;
+      }
+
+      /* ---------- Content grid ---------- */
       .content {
         display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 24px;
+        grid-template-columns: 1.6fr 0.9fr;
+        gap: 48px;
+        padding: 44px 0 64px;
       }
 
-      article, aside {
-        background: rgba(16, 27, 45, 0.9);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 28px;
-        box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      article p, article li { color: #33383f; font-size: 1.02rem; }
+
+      article h2 {
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 14px;
       }
 
-      h2, h3 {
-        margin-top: 0;
-        line-height: 1.25;
-      }
-
-      p, li {
-        color: #dce7f5;
+      article h3 {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
       }
 
       .callout {
-        background: linear-gradient(135deg, rgba(116, 169, 255, 0.15), rgba(99, 230, 190, 0.12));
+        background: var(--accent-soft);
         border-left: 4px solid var(--accent);
-        padding: 14px 16px;
-        border-radius: 12px;
-        margin: 20px 0;
+        padding: 16px 18px;
+        border-radius: 8px;
+        margin: 24px 0;
+        color: #17392f;
       }
 
+      .callout strong { color: var(--accent); }
+
       pre {
-        background: #030812;
-        border-radius: 12px;
-        padding: 16px;
+        background: #16201d;
+        border-radius: 10px;
+        padding: 18px;
         overflow-x: auto;
-        border: 1px solid var(--border);
+        border: 1px solid var(--line);
       }
 
       code {
         font-family: "Fira Code", Consolas, monospace;
-        color: var(--accent);
+        color: #8be9b9;
+        font-size: 0.9rem;
       }
 
-      .sidebar-card {
-        margin-bottom: 16px;
-        padding: 16px;
+      .further-reading {
+        margin-top: 28px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
         background: var(--surface-2);
-        border: 1px solid var(--border);
-        border-radius: 14px;
+      }
+
+      .further-reading p {
+        margin: 0;
+        font-size: 0.98rem;
+      }
+
+      .further-reading a {
+        font-weight: 600;
+      }
+
+      .further-reading .fr-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* ---------- Sidebar ---------- */
+      .sidebar-card {
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 22px;
+        margin-bottom: 20px;
       }
 
       .sidebar-card h3 {
-        margin-bottom: 8px;
+        margin-top: 0;
+        font-size: 1.05rem;
+        margin-bottom: 12px;
       }
 
-      ul { padding-left: 18px; }
+      .sidebar-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .sidebar-card ul li {
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--line);
+        font-size: 0.93rem;
+      }
+
+      .sidebar-card ul li:last-child { border-bottom: none; }
+
+      .sidebar-card p { color: var(--muted); font-size: 0.93rem; }
+
+      .contact-card {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+      }
+
+      .contact-card h3 { color: #fff; }
+      .contact-card p { color: rgba(255,255,255,0.82); }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 6px;
+        background: #fff;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-top: 6px;
+      }
+
+      .btn:hover { background: var(--accent-soft); text-decoration: none; }
+
+      /* ---------- Footer (shared) ---------- */
+      footer {
+        border-top: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .footer-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .footer-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .footer-contact {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
 
       @media (max-width: 900px) {
         .content { grid-template-columns: 1fr; }
+        .nav a:not(.btn-contact) { display: none; }
       }
     </style>
   </head>
   <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">Contributor<span> Posts</span></div>
+        <nav class="nav">
+          <a href="index.html#latest">Latest</a>
+          <a href="index.html#topics">Topics</a>
+          <a href="index.html#about">About</a>
+          <a class="btn-contact" href="mailto:brandingbuzzagency@gmail.com">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
     <div class="page">
-      <header class="hero">
-        <div class="eyebrow">Engineering • AI • Product</div>
+      <section class="hero">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#latest">Latest</a> / Building Smarter Software in the Age of AI</div>
+        <div class="eyebrow">Engineering · AI · Product</div>
         <h1>Building Smarter Software in the Age of AI</h1>
-        <p>
+        <p class="dek">
           Modern teams are shipping faster, but speed without clarity can create technical debt.
           The most effective engineering organizations are using AI to amplify thoughtful design,
           not replace it.
         </p>
         <div class="meta">
-          <span>By Alex Chen</span>
-          <span>•</span>
+          <span class="author-avatar">AC</span>
+          <span>Alex Chen</span>
+          <span class="dot">•</span>
           <span>July 5, 2026</span>
-          <span>•</span>
+          <span class="dot">•</span>
           <span>8 min read</span>
         </div>
-      </header>
+      </section>
 
       <div class="content">
         <article>
@@ -202,6 +414,21 @@
             As with any powerful technology, AI introduces new challenges. Teams should stay mindful of data privacy, hallucinated outputs, and over-reliance on generated code.
             The right approach is to build a culture of review, verification, and continuous learning.
           </p>
+
+          <h3>Where engineering practice is heading</h3>
+          <p>
+            Software architecture principles are not being replaced by AI, they are becoming more important.
+            Clear boundaries, testable modules, and disciplined refactoring make it easier for both humans and AI tools to reason about a codebase.
+            Teams that already invest in strong engineering fundamentals tend to get the most value from AI-assisted development.
+          </p>
+
+          <div class="further-reading">
+            <span class="fr-label">Further Reading</span>
+            <p>
+              For a deeper look at engineering discipline in fast-moving teams, see Martin Fowler's writing on software architecture and design at
+              <a href="https://martinfowler.com/" target="_blank" rel="noopener noreferrer">martinfowler.com</a>.
+            </p>
+          </div>
         </article>
 
         <aside>
@@ -211,6 +438,7 @@
               <li>How AI is changing software development</li>
               <li>Best practices for using AI responsibly</li>
               <li>What high-performing teams are doing differently</li>
+              <li>Where engineering practice is heading</li>
             </ul>
           </div>
 
@@ -229,8 +457,22 @@
               The companies that win will be the ones that use AI to remove friction while preserving quality, trust, and creativity.
             </p>
           </div>
+
+          <div class="sidebar-card contact-card">
+            <h3>Have a story to share?</h3>
+            <p>Pitch an article or get in touch with our editorial team.</p>
+            <a class="btn" href="mailto:brandingbuzzagency@gmail.com">Email Us</a>
+          </div>
         </aside>
       </div>
     </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">Contributor Posts</div>
+        <div class="footer-meta">© 2026 Contributor Posts · Built for thoughtful readers and modern teams.</div>
+        <a class="footer-contact" href="mailto:brandingbuzzagency@gmail.com">brandingbuzzagency@gmail.com</a>
+      </div>
+    </footer>
   </body>
 </html>
