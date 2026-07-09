@@ -29,6 +29,9 @@
         background: var(--bg);
         color: var(--ink);
         line-height: 1.7;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
       }
 
       h1, h2, h3 {
@@ -178,6 +181,11 @@
         grid-template-columns: 1.6fr 0.9fr;
         gap: 48px;
         padding: 44px 0 64px;
+      }
+
+      .content > article,
+      .content > aside {
+        min-width: 0;
       }
 
       article p, article li { color: #33383f; font-size: 1.02rem; }
@@ -422,6 +430,37 @@
         .content { grid-template-columns: 1fr; }
         .nav a:not(.btn-contact) { display: none; }
       }
+
+      @media (max-width: 640px) {
+        .page { padding: 0 16px; }
+        .topbar-inner { padding: 14px 16px; }
+        .brand { font-size: 1.25rem; }
+        .btn-contact { padding: 8px 14px; font-size: 0.85rem; }
+
+        .hero { padding: 32px 0 24px; }
+        h1 { max-width: none; }
+        .hero p.dek { font-size: 1rem; }
+        .meta { font-size: 0.85rem; gap: 10px; }
+
+        .content { gap: 32px; padding: 28px 0 40px; }
+        article h2 { font-size: 1.3rem; margin-top: 32px; }
+        article h3 { font-size: 1.1rem; }
+        article p, article li { font-size: 1rem; }
+
+        .callout, .further-reading { padding: 14px 16px; }
+
+        table { font-size: 0.85rem; }
+        thead th, tbody td { padding: 10px 12px; }
+
+        .sidebar-card { padding: 18px; }
+
+        .footer-inner { padding: 28px 16px; flex-direction: column; align-items: flex-start; }
+      }
+
+      @media (max-width: 400px) {
+        h1 { font-size: 1.6rem; }
+        .eyebrow { font-size: 0.7rem; }
+      }
     </style>
   </head>
   <body>
@@ -474,7 +513,7 @@
 
           <h2>Quick Answer: Our Top Pick</h2>
           <div class="callout">
-            <strong>BrandingBuzz.Agency</strong> is our top overall pick for 2026. It combines professional press
+            <strong><a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">BrandingBuzz.Agency</a></strong> is our top overall pick for 2026. It combines professional press
             release writing, distribution to a network of 100+ trusted media outlets, and "As Seen On" media logo
             assets — all handled end-to-end by a real team, without the bloated add-on pricing or rigid annual
             contracts that legacy wires are known for. It's the best fit for founders, small businesses, and agencies
@@ -496,10 +535,10 @@
             <li><strong>Value for SEO and brand credibility</strong> — does it produce something you can actually point to (media logos, live links, indexed pages)</li>
           </ul>
 
-          <h2>1. BrandingBuzz.Agency — Best Overall</h2>
+          <h2>1. <a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">BrandingBuzz.Agency</a> — Best Overall</h2>
           <p><strong>Best for:</strong> Startups, small businesses, entrepreneurs, and agencies who want a done-for-you press release that builds real brand authority.</p>
           <p>
-            BrandingBuzz.Agency stands out because it isn't a self-serve form where you upload a document and hope
+            <a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">BrandingBuzz.Agency</a> stands out because it isn't a self-serve form where you upload a document and hope
             for the best. After you place an order, the team writes a professionally crafted news release around
             your brand — typically within 2–3 business days — and sends it to you for approval before anything goes
             live. Once you sign off, the release is distributed through their network of premium media outlets,
@@ -525,6 +564,9 @@
             financial disclosure distribution or guaranteed AP/Reuters wire placement — that's a narrow use case
             better served by an enterprise wire (see Business Wire and GlobeNewswire below).
           </p>
+          <p>
+            Website: <a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">brandingbuzz.agency</a>
+          </p>
 
           <h2>Comparison Table</h2>
           <div class="table-wrap">
@@ -540,7 +582,7 @@
               </thead>
               <tbody>
                 <tr class="highlight-row">
-                  <td>BrandingBuzz.Agency</td>
+                  <td><a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">BrandingBuzz.Agency</a></td>
                   <td>SMBs, startups, agencies</td>
                   <td>Yes</td>
                   <td>Full-service, media logo assets, approval step</td>
@@ -638,7 +680,7 @@
 
           <h2>How to Choose the Right Service for You</h2>
           <ul>
-            <li><strong>Want a polished release written for you, published on outlets that build real credibility, without a subscription or confusing dashboard?</strong> Go with BrandingBuzz.Agency.</li>
+            <li><strong>Want a polished release written for you, published on outlets that build real credibility, without a subscription or confusing dashboard?</strong> Go with <a href="https://brandingbuzz.agency/" target="_blank" rel="noopener noreferrer">BrandingBuzz.Agency</a>.</li>
             <li><strong>Need AP/Reuters wire placement for a public company or SEC filing?</strong> Business Wire or GlobeNewswire.</li>
             <li><strong>Have an in-house writer and just need affordable, self-serve syndication?</strong> EIN Presswire or PRWeb.</li>
             <li><strong>Want journalist outreach on top of standard wire distribution?</strong> eReleases.</li>
