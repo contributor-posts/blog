@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrowserAgent Review 2026: What This AI Browser Tool Actually Does | Contributor Posts</title>
+    <meta name="description" content="An independent BrowserAgent review — what the AI browser agent actually does, how it compares to Browser Use, Skyvern, and Operator, and what to know before buying." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --surface-2: #f4f2ec;
+        --ink: #1c2126;
+        --muted: #5b6470;
+        --line: #e4e1d8;
+        --accent: #1f5f4f;
+        --accent-ink: #ffffff;
+        --accent-soft: #e7efe9;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.7;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      h1, h2, h3 {
+        font-family: "Source Serif 4", Georgia, serif;
+        color: var(--ink);
+        letter-spacing: -0.01em;
+      }
+
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .page {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ---------- Header (shared) ---------- */
+      .topbar {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .topbar-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .brand span { color: var(--accent); }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav a {
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+
+      .nav a:hover { color: var(--ink); text-decoration: none; }
+
+      .btn-contact {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 6px;
+        background: var(--accent);
+        color: var(--accent-ink) !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .btn-contact:hover { background: #17493d; text-decoration: none; }
+
+      /* ---------- Article hero ---------- */
+      .hero {
+        padding: 48px 0 36px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      .breadcrumb a { color: var(--muted); font-weight: 500; }
+      .breadcrumb a:hover { color: var(--accent); }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 16px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 22px;
+        height: 2px;
+        background: var(--accent);
+        display: inline-block;
+      }
+
+      h1 {
+        font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+        line-height: 1.15;
+        margin: 0 0 16px;
+        max-width: 26ch;
+      }
+
+      .hero p.dek {
+        color: var(--muted);
+        max-width: 720px;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+
+      .meta {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .meta .dot { color: var(--line); }
+
+      .author-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+        margin-right: 6px;
+      }
+
+      /* ---------- Content grid ---------- */
+      .content {
+        display: grid;
+        grid-template-columns: 1.6fr 0.9fr;
+        gap: 48px;
+        padding: 44px 0 64px;
+      }
+
+      .content > article,
+      .content > aside {
+        min-width: 0;
+      }
+
+      article p, article li { color: #33383f; font-size: 1.02rem; }
+
+      article h2 {
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 14px;
+      }
+
+      article h3 {
+        font-size: 1.2rem;
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+
+      .callout {
+        background: var(--accent-soft);
+        border-left: 4px solid var(--accent);
+        padding: 16px 18px;
+        border-radius: 8px;
+        margin: 24px 0;
+        color: #17392f;
+      }
+
+      .callout strong { color: var(--accent); }
+
+      pre {
+        background: #16201d;
+        border-radius: 10px;
+        padding: 18px;
+        overflow-x: auto;
+        border: 1px solid var(--line);
+      }
+
+      code {
+        font-family: "Fira Code", Consolas, monospace;
+        color: #8be9b9;
+        font-size: 0.9rem;
+      }
+
+      .further-reading {
+        margin-top: 28px;
+        padding: 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface-2);
+      }
+
+      .further-reading p {
+        margin: 0;
+        font-size: 0.98rem;
+      }
+
+      .further-reading a {
+        font-weight: 600;
+      }
+
+      .further-reading .fr-label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* ---------- Comparison table ---------- */
+      .table-wrap {
+        overflow-x: auto;
+        margin: 24px 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 640px;
+        background: var(--surface);
+        font-size: 0.92rem;
+      }
+
+      thead th {
+        text-align: left;
+        background: var(--surface-2);
+        color: var(--ink);
+        font-weight: 700;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        white-space: nowrap;
+      }
+
+      tbody td {
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--line);
+        color: #33383f;
+        vertical-align: top;
+      }
+
+      tbody tr:last-child td { border-bottom: none; }
+
+      tbody tr.highlight-row td {
+        background: var(--accent-soft);
+      }
+
+      tbody tr.highlight-row td:first-child {
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      /* ---------- FAQ ---------- */
+      .faq-item {
+        border-bottom: 1px solid var(--line);
+        padding: 18px 0;
+      }
+
+      .faq-item:last-child { border-bottom: none; }
+
+      .faq-item h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+      }
+
+      .faq-item p { margin: 0; }
+
+      /* ---------- Sidebar ---------- */
+      .sidebar-card {
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 22px;
+        margin-bottom: 20px;
+      }
+
+      .sidebar-card h3 {
+        margin-top: 0;
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+      }
+
+      .sidebar-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .sidebar-card ul li {
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--line);
+        font-size: 0.93rem;
+      }
+
+      .sidebar-card ul li:last-child { border-bottom: none; }
+
+      .sidebar-card p { color: var(--muted); font-size: 0.93rem; }
+
+      .top-pick-card {
+        border: 1px solid var(--accent);
+      }
+
+      .top-pick-card .pick-name {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+
+      .top-pick-card .pick-badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+      }
+
+      .contact-card {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+      }
+
+      .contact-card h3 { color: #fff; }
+      .contact-card p { color: rgba(255,255,255,0.82); }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 18px;
+        border-radius: 6px;
+        background: #fff;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-top: 6px;
+      }
+
+      .btn:hover { background: var(--accent-soft); text-decoration: none; }
+
+      /* ---------- Footer (shared) ---------- */
+      footer {
+        border-top: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .footer-inner {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-brand {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      .footer-meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .footer-contact {
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .content { grid-template-columns: 1fr; }
+        .nav a:not(.btn-contact) { display: none; }
+      }
+
+      @media (max-width: 640px) {
+        .page { padding: 0 16px; }
+        .topbar-inner { padding: 14px 16px; }
+        .brand { font-size: 1.25rem; }
+        .btn-contact { padding: 8px 14px; font-size: 0.85rem; }
+
+        .hero { padding: 32px 0 24px; }
+        h1 { max-width: none; }
+        .hero p.dek { font-size: 1rem; }
+        .meta { font-size: 0.85rem; gap: 10px; }
+
+        .content { gap: 32px; padding: 28px 0 40px; }
+        article h2 { font-size: 1.3rem; margin-top: 32px; }
+        article h3 { font-size: 1.1rem; }
+        article p, article li { font-size: 1rem; }
+
+        .callout, .further-reading { padding: 14px 16px; }
+
+        table { font-size: 0.85rem; }
+        thead th, tbody td { padding: 10px 12px; }
+
+        .sidebar-card { padding: 18px; }
+
+        .footer-inner { padding: 28px 16px; flex-direction: column; align-items: flex-start; }
+      }
+
+      @media (max-width: 400px) {
+        h1 { font-size: 1.6rem; }
+        .eyebrow { font-size: 0.7rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">Contributor<span> Posts</span></div>
+        <nav class="nav">
+          <a href="index.html#latest">Latest</a>
+          <a href="index.html#topics">Topics</a>
+          <a href="index.html#about">About</a>
+          <a class="btn-contact" href="mailto:brandingbuzzagency@gmail.com">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="page">
+      <section class="hero">
+        <div class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#latest">Latest</a> / BrowserAgent Review 2026</div>
+        <div class="eyebrow">AI Tools · Automation · Browser Agents</div>
+        <h1>BrowserAgent Review: What This AI Browser Tool Actually Does (And Doesn't)</h1>
+        <p class="dek">
+          Most "BrowserAgent reviews" online are written by affiliates earning a commission on every sale.
+          Here's an independent look at what the tool actually does, how it stacks up against Browser Use,
+          Skyvern, and Operator, and what to know about the sales funnel before you buy.
+        </p>
+        <div class="meta">
+          <span class="author-avatar">CP</span>
+          <span>Contributor Posts Editorial Team</span>
+          <span class="dot">•</span>
+          <span>July 14, 2026</span>
+          <span class="dot">•</span>
+          <span>8 min read</span>
+        </div>
+      </section>
+
+      <div class="content">
+        <article>
+          <p>
+            If you've searched "BrowserAgent review" recently, you've probably noticed something odd: nearly every
+            result reads the same way. Enthusiastic first-person narration, a countdown-style pricing breakdown, a
+            list of "beta tester" income claims, and a link to buy. That's not a coincidence — BrowserAgent is sold
+            through JVZoo, an affiliate marketplace, which means most of what's written about it comes from people
+            earning a commission on every sale.
+          </p>
+          <p>
+            This review takes a different approach: what the product actually is, how it compares to the tools
+            serious automation builders use, and what to know about the sales funnel before you hand over your card.
+          </p>
+
+          <h2>Quick Take</h2>
+          <div class="callout">
+            <strong>BrowserAgent</strong> is a legitimate no-code AI browser agent for simple, forgiving tasks like
+            local lead generation — a reasonable low-risk entry point at its $37 front-end price. It is not a
+            benchmarked, enterprise-grade automation tool, and the aggressive upsell funnel behind it (multiple OTOs,
+            an annual bundle, a recurring "FastPass") is worth knowing about before you buy.
+          </div>
+
+          <h2>What BrowserAgent Actually Is</h2>
+          <p>
+            BrowserAgent is a cloud-hosted AI agent that controls a real Chromium browser on your behalf. Instead of
+            writing a scraping script or clicking through a workflow manually, you type an instruction in plain
+            English — something like "find 100 dentists in Miami with phone numbers and emails" — and the tool
+            navigates websites, clicks buttons, fills in forms, and returns the results in a spreadsheet-ready
+            format.
+          </p>
+          <p>
+            It's built by Abhi Dwivedi, a JVZoo-known creator with a history of similar "done-for-you" digital
+            products, through a company called VineaSX Solutions. The product ships with a library of pre-built
+            "missions" (lead generation, social posting, competitor research, SEO audits, and so on) so buyers don't
+            have to write their own automation prompts from scratch.
+          </p>
+          <p>
+            Technically, it sits in the same category as OpenAI's Operator, Anthropic's Claude with computer use, and
+            open-source frameworks like Browser Use — an LLM that looks at a webpage, decides what to click or type,
+            and adapts when the layout changes instead of breaking like a traditional scraper.
+          </p>
+
+          <h2>How It Works</h2>
+          <p>The workflow is genuinely simple:</p>
+          <ul>
+            <li><strong>Describe the task or pick a template.</strong> You either type a plain-English instruction or select from the pre-built mission library.</li>
+            <li><strong>Watch it run in the cloud.</strong> The browser session runs on BrowserAgent's servers, not your machine, so you can close your laptop and the task keeps going.</li>
+            <li><strong>Get structured output.</strong> Results land in your dashboard, exportable to CSV, Excel, or Google Sheets.</li>
+          </ul>
+          <p>
+            The mission library is the main usability advantage here — for someone with no automation background,
+            picking "Google Maps Lead Finder" and filling in a city and niche is a much lower barrier than writing a
+            working prompt for an open-ended agent.
+          </p>
+
+          <h2>Where It's Genuinely Useful</h2>
+          <ul>
+            <li><strong>No-code lead generation.</strong> Local business lead lists (Google Maps, Yelp, Yellow Pages) are the strongest, most repeatable use case, and the templates map directly to services agencies already sell.</li>
+            <li><strong>Scheduled, unattended tasks.</strong> A repeat scheduler lets missions run daily or weekly without you starting them manually.</li>
+            <li><strong>Visible proof of work.</strong> A live browser feed and mission replay let you actually watch what the agent did, rather than trusting a black-box output.</li>
+            <li><strong>Low upfront cost.</strong> At $37 one-time for the core product, it's dramatically cheaper than subscription competitors like Bardeen ($60+/month) or PhantomBuster ($69+/month), let alone $200/month tools like Operator.</li>
+          </ul>
+
+          <h2>Where It Falls Short</h2>
+          <ul>
+            <li><strong>It's not a reliable replacement for engineering-grade automation.</strong> Independent benchmarks like WebVoyager put dedicated agent frameworks — Browser Use around 89%, Skyvern around 86% — well ahead of consumer-grade agents on task completion. BrowserAgent hasn't published comparable results, and reviews consistently note it makes mistakes mid-task and struggles on sites with active bot-blocking.</li>
+            <li><strong>No enterprise controls.</strong> There's no audit logging or role-based access control, so it's a poor fit for anyone needing compliance-grade automation.</li>
+            <li><strong>The real risk is what it can click.</strong> Because the agent can complete purchases or submit forms, running it in a dedicated browser profile with no saved payment methods, and reviewing high-stakes actions before approving them, is a reasonable precaution — not optional caution.</li>
+            <li><strong>The sales funnel is aggressive.</strong> The $37 entry price is a front-end offer; behind it sits a stack of upsells — additional OTOs, an annual "xBundle" (roughly $267–317/year), a recurring "FastPass," and bundled access to unrelated apps. None are required to use the core tool, but the funnel is built to make you feel like you're missing something if you don't buy them.</li>
+          </ul>
+
+          <h2>Comparison Table</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Price</th>
+                  <th>Setup</th>
+                  <th>Best For</th>
+                  <th>Watch-Outs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>BrowserAgent</td>
+                  <td>$37 one-time (+ optional upsells)</td>
+                  <td>No-code, GUI</td>
+                  <td>Non-technical lead gen, quick wins</td>
+                  <td>Upsell funnel, inconsistent reliability</td>
+                </tr>
+                <tr>
+                  <td>Browser Use (open-source)</td>
+                  <td>Free / self-hosted, API costs apply</td>
+                  <td>Requires dev setup</td>
+                  <td>Developers building custom agents</td>
+                  <td>Not beginner-friendly out of the box</td>
+                </tr>
+                <tr>
+                  <td>Skyvern</td>
+                  <td>Free / self-hosted, API costs apply</td>
+                  <td>Requires dev setup</td>
+                  <td>Form-heavy workflows</td>
+                  <td>Requires technical setup</td>
+                </tr>
+                <tr>
+                  <td>Operator (OpenAI)</td>
+                  <td>~$200/month</td>
+                  <td>No-code</td>
+                  <td>General-purpose tasks, no coding</td>
+                  <td>Expensive for occasional use</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            If you can write a bit of code or don't mind a setup step, Browser Use or Skyvern will likely complete
+            tasks more reliably for less ongoing cost. If you want a genuinely no-code experience and are comfortable
+            with a one-time payment, BrowserAgent is a reasonable low-stakes entry point — as long as you treat the
+            upsells as optional rather than necessary.
+          </p>
+
+          <h2>Who Should (and Shouldn't) Buy It</h2>
+          <p><strong>A reasonable fit if you:</strong></p>
+          <ul>
+            <li>Want to try browser automation without writing code or managing API keys</li>
+            <li>Run local lead generation, social posting, or research tasks that tolerate some manual QA</li>
+            <li>Are comfortable reviewing agent output before it goes to a client</li>
+          </ul>
+          <p><strong>Probably not worth it if you:</strong></p>
+          <ul>
+            <li>Need dependable, unattended automation at scale</li>
+            <li>Require compliance controls, audit trails, or team permissions</li>
+            <li>Are hoping the tool alone will generate the "$300–800 per client" income examples used in the marketing — those are outcomes from people doing sales and service delivery work around the tool, not from the software itself</li>
+          </ul>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <h3>Is BrowserAgent legit, or is it a scam?</h3>
+            <p>
+              It's a real product that does what it claims at a basic level — it opens a real browser and completes
+              plain-English tasks. It's not a scam, but the marketing around it (income claims, urgency-driven OTOs)
+              is typical affiliate-funnel behavior, and buyers should treat the upsell stack skeptically.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How does BrowserAgent compare to OpenAI's Operator?</h3>
+            <p>
+              Operator is a general-purpose agent backed by a $200/month subscription and OpenAI's infrastructure.
+              BrowserAgent is far cheaper and mission-template-driven, but it hasn't published benchmark results
+              comparable to Operator's or to open-source frameworks like Browser Use.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is it safe to let an AI agent control my browser?</h3>
+            <p>
+              Treat it the way you'd treat any tool with click and form-fill access: run it in a dedicated browser
+              profile with no saved payment methods, and review any high-stakes action — like a purchase or a login
+              — before approving it.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Do I need to buy the upsells to use BrowserAgent?</h3>
+            <p>
+              No. The $37 front-end purchase includes the core agent, the mission library, and export functionality.
+              The additional OTOs and the annual xBundle add extras like a visual workflow builder and stealth
+              scraping, but they aren't required to use the base product.
+            </p>
+          </div>
+
+        </article>
+
+        <aside>
+          <div class="sidebar-card top-pick-card">
+            <span class="pick-badge">Verdict</span>
+            <div class="pick-name">BrowserAgent</div>
+            <p>Solid no-code entry point for simple browser automation — skip the upsells until you know you need them, and keep it out of any browser profile with saved payment info.</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>In this article</h3>
+            <ul>
+              <li>Quick take</li>
+              <li>What BrowserAgent actually is</li>
+              <li>How it works</li>
+              <li>Where it's genuinely useful</li>
+              <li>Where it falls short</li>
+              <li>Comparison table</li>
+              <li>Who should buy it</li>
+              <li>FAQ</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>At a glance</h3>
+            <ul>
+              <li>Best for no-code lead gen: BrowserAgent</li>
+              <li>Best for developers: Browser Use</li>
+              <li>Best for forms: Skyvern</li>
+              <li>Best general-purpose: Operator</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card contact-card">
+            <h3>Have a story to share?</h3>
+            <p>Pitch an article or get in touch with our editorial team.</p>
+            <a class="btn" href="mailto:brandingbuzzagency@gmail.com">Email Us</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">Contributor Posts</div>
+        <div class="footer-meta">© 2026 Contributor Posts · Built for thoughtful readers and modern teams.</div>
+        <a class="footer-contact" href="mailto:brandingbuzzagency@gmail.com">brandingbuzzagency@gmail.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
