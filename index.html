@@ -1,445 +1,727 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributor Posts | Tech Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg: #fbfaf7;
-        --surface: #ffffff;
-        --surface-2: #f4f2ec;
-        --ink: #1c2126;
-        --muted: #5b6470;
-        --line: #e4e1d8;
-        --accent: #1f5f4f;
-        --accent-ink: #ffffff;
-        --accent-soft: #e7efe9;
-        --gold: #b8860b;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributor Posts &mdash; All Articles</title>
+  <meta name="description" content="Reviews, guides, and reporting from independent contributors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      * { box-sizing: border-box; }
+    :root { --accent: #2563eb; }
 
-      body {
-        margin: 0;
-        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-        line-height: 1.65;
-      }
+    html { scroll-behavior: smooth; }
 
-      h1, h2, h3 {
-        font-family: "Source Serif 4", Georgia, serif;
-        color: var(--ink);
-        letter-spacing: -0.01em;
-      }
+    body {
+      margin: 0;
+      background: #fbfbf9;
+      color: #17181c;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
 
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
+    img { display: block; }
 
-      .page {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
+    /* ── Utility bar ─────────────────────────────────────────────────── */
 
-      /* ---------- Header ---------- */
-      .topbar {
-        border-bottom: 1px solid var(--line);
-        background: var(--surface);
-      }
+    .cp-util {
+      background: #17181c;
+      color: #aab0b8;
+    }
 
-      .topbar-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 18px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    .cp-util-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 8px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
 
-      .brand {
-        font-family: "Source Serif 4", Georgia, serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        color: var(--ink);
-      }
+    .cp-util-date { font-weight: 500; }
 
-      .brand span { color: var(--accent); }
+    .cp-util-links { display: flex; gap: 20px; }
 
-      .nav {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-      }
+    .cp-util-links a { color: #aab0b8; text-decoration: none; }
+    .cp-util-links a:hover { color: #ffffff; }
 
-      .nav a {
-        color: var(--muted);
-        font-weight: 500;
-        font-size: 0.95rem;
-      }
+    /* ── Masthead ────────────────────────────────────────────────────── */
 
-      .nav a:hover { color: var(--ink); text-decoration: none; }
+    .cp-masthead {
+      background: #fbfbf9;
+      border-bottom: 1px solid #e7e6e1;
+    }
 
-      .btn-contact {
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 6px;
-        background: var(--accent);
-        color: var(--accent-ink) !important;
-        font-weight: 600;
-        font-size: 0.9rem;
-        white-space: nowrap;
-      }
+    .cp-masthead-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 28px 30px;
+      text-align: center;
+    }
 
-      .btn-contact:hover { background: #17493d; text-decoration: none; }
+    .cp-masthead-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #9aa1ab;
+    }
 
-      /* ---------- Hero ---------- */
-      .hero {
-        padding: 64px 0 48px;
-        border-bottom: 1px solid var(--line);
-      }
+    .cp-masthead-title {
+      margin: 14px 0 8px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 54px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #17181c;
+    }
 
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.78rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 18px;
-      }
+    .cp-masthead-sub {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #6b7280;
+    }
 
-      .eyebrow::before {
-        content: "";
-        width: 22px;
-        height: 2px;
-        background: var(--accent);
-        display: inline-block;
-      }
+    /* ── Sticky nav ──────────────────────────────────────────────────── */
 
-      h1 {
-        font-size: clamp(2.1rem, 4vw, 3.2rem);
-        line-height: 1.15;
-        margin: 0 0 18px;
-        max-width: 20ch;
-      }
+    .cp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 251, 249, 0.93);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid #e7e6e1;
+      border-bottom: 1px solid #e7e6e1;
+    }
 
-      .hero p {
-        max-width: 620px;
-        color: var(--muted);
-        font-size: 1.1rem;
-        margin-bottom: 28px;
-      }
+    .cp-nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-      .hero-actions {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
+    .cp-nav-links {
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+      gap: 2px;
+    }
 
-      .btn {
-        display: inline-block;
-        padding: 12px 22px;
-        border-radius: 6px;
-        background: var(--ink);
-        color: #fff;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
+    .cp-nav-links::-webkit-scrollbar { display: none; }
 
-      .btn:hover { background: #000; text-decoration: none; }
+    .cp-nav-link {
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: #6b7280;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color .12s, border-color .12s;
+    }
 
-      .btn.secondary {
-        background: transparent;
-        color: var(--ink);
-        border: 1px solid var(--line);
-      }
+    .cp-nav-link:hover { color: #17181c; border-bottom-color: #d7d7d1; }
+    .cp-nav-active { color: #17181c; border-bottom-color: var(--accent) !important; }
 
-      .btn.secondary:hover {
-        border-color: var(--ink);
-        text-decoration: none;
-      }
+    .cp-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
 
-      /* ---------- Content grid ---------- */
-      .grid {
-        display: grid;
-        grid-template-columns: 1.5fr 0.85fr;
-        gap: 48px;
-        padding: 48px 0 64px;
-      }
+    .cp-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border: 1px solid #e0dfd9;
+      border-radius: 999px;
+      color: #9aa1ab;
+      font-size: 13px;
+      cursor: default;
+    }
 
-      .section-label {
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 22px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
+    .cp-subscribe {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--accent);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: filter .12s;
+    }
 
-      .section-label::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--line);
-      }
+    .cp-subscribe:hover { filter: brightness(.88); }
 
-      .post-list {
-        display: grid;
-        gap: 22px;
-      }
+    /* ── Main two-column layout ──────────────────────────────────────── */
 
-      .post-card {
-        display: grid;
-        grid-template-columns: 90px 1fr;
-        gap: 20px;
-        padding-bottom: 22px;
-        border-bottom: 1px solid var(--line);
-      }
+    .cp-main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 44px 28px 8px;
+      display: flex;
+      gap: 54px;
+      align-items: flex-start;
+    }
 
-      .post-card:last-child { border-bottom: none; padding-bottom: 0; }
+    .cp-content { flex: 1; min-width: 0; }
 
-      .post-index {
-        font-family: "Source Serif 4", Georgia, serif;
-        font-size: 2.2rem;
-        color: var(--line);
-        font-weight: 600;
-        line-height: 1;
-      }
+    .cp-sidebar {
+      flex: 0 0 320px;
+      position: sticky;
+      top: 72px;
+    }
 
-      .post-card h3 {
-        margin: 0 0 8px;
-        font-size: 1.25rem;
-      }
+    /* ── Shared typography ───────────────────────────────────────────── */
 
-      .post-card p {
-        color: var(--muted);
-        margin: 0 0 10px;
-        font-size: 0.98rem;
-      }
+    .cp-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
 
-      .post-card .read-more {
-        font-size: 0.88rem;
-        font-weight: 600;
-      }
+    .cp-meta {
+      font-size: 13px;
+      color: #9aa1ab;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
 
-      /* ---------- Sidebar ---------- */
-      .sidebar-card {
-        background: var(--surface-2);
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        padding: 24px;
-        margin-bottom: 20px;
-      }
+    /* ── Lead article ────────────────────────────────────────────────── */
 
-      .sidebar-card h3 {
-        margin-top: 0;
-        font-size: 1.1rem;
-        margin-bottom: 14px;
-      }
+    .cp-lead {
+      padding-bottom: 36px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid #e7e6e1;
+    }
 
-      .sidebar-card ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        color: var(--muted);
-      }
+    .cp-lead-img {
+      display: block;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 22px;
+      background: #eef0f2;
+    }
 
-      .sidebar-card ul li {
-        padding: 9px 0;
-        border-bottom: 1px dashed var(--line);
-        font-size: 0.95rem;
-        display: flex;
-        justify-content: space-between;
-      }
+    .cp-lead-img img { transition: transform .35s ease; }
+    .cp-lead-img:hover img { transform: scale(1.02); }
 
-      .sidebar-card ul li:last-child { border-bottom: none; }
+    .cp-lead-title {
+      margin: 0 0 14px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
 
-      .sidebar-card p {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
+    .cp-lead-title a { color: #17181c; text-decoration: none; }
+    .cp-lead-title a:hover { color: var(--accent); }
 
-      .contact-card {
-        background: var(--accent);
-        color: #fff;
-        border: none;
-      }
+    .cp-lead-dek {
+      margin: 0 0 16px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.55;
+      color: #4b5563;
+      max-width: 62ch;
+    }
 
-      .contact-card h3 { color: #fff; }
-      .contact-card p { color: rgba(255,255,255,0.82); }
+    /* ── Secondary pair ──────────────────────────────────────────────── */
 
-      .contact-card .btn {
-        background: #fff;
-        color: var(--accent);
-        margin-top: 6px;
-      }
+    .cp-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      padding-bottom: 40px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e7e6e1;
+    }
 
-      .contact-card .btn:hover { background: var(--accent-soft); }
+    .cp-sec-img {
+      display: block;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      margin-bottom: 16px;
+      background: #eef0f2;
+    }
 
-      /* ---------- Footer ---------- */
-      footer {
-        border-top: 1px solid var(--line);
-        background: var(--surface);
-      }
+    .cp-sec-img img { transition: transform .35s ease; }
+    .cp-sec-img:hover img { transform: scale(1.02); }
 
-      .footer-inner {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 40px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
+    .cp-sec-title {
+      margin: 0 0 10px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 23px;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+    }
 
-      .footer-brand {
-        font-family: "Source Serif 4", Georgia, serif;
-        font-weight: 700;
-        font-size: 1.1rem;
-      }
+    .cp-sec-title a { color: #17181c; text-decoration: none; }
+    .cp-sec-title a:hover { color: var(--accent); }
 
-      .footer-meta {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
+    /* ── Latest feed ─────────────────────────────────────────────────── */
 
-      .footer-contact {
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
+    .cp-latest { padding-top: 30px; }
 
-      @media (max-width: 900px) {
-        .grid { grid-template-columns: 1fr; }
-        .nav a:not(.btn-contact) { display: none; }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">Contributor<span> Posts</span></div>
-        <nav class="nav">
-          <a href="#latest">Latest</a>
-          <a href="#topics">Topics</a>
-          <a href="#about">About</a>
-          <a class="btn-contact" href="mailto:brandingbuzzagency@gmail.com">Contact Us</a>
-        </nav>
-      </div>
-    </header>
+    .cp-latest-hd {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
 
-    <div class="page">
-      <section class="hero">
-        <div class="eyebrow">Technology · Insights · Product</div>
-        <h1>Stories and practical lessons from modern software teams.</h1>
-        <p>
-          Contributor Posts is a professional tech blog for developers, designers, and builders who want clear, well-researched insights on AI, cloud, product strategy, and engineering excellence.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#latest">Explore Articles</a>
-          <a class="btn secondary" href="post-3.html">Read the Latest Post</a>
-        </div>
-      </section>
+    .cp-latest-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+    }
 
-      <div class="grid">
-        <section id="latest">
-          <div class="section-label">Featured Articles</div>
-          <div class="post-list">
-            <div class="post-card">
-              <div class="post-index">01</div>
-              <div>
-                <h3>The Future of Cloud Computing</h3>
-                <p>Explore how edge architecture and resilient platforms are reshaping enterprise software.</p>
-                <a class="read-more" href="post-1.html">Read article →</a>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-index">02</div>
-              <div>
-                <h3>Designing Faster APIs for Modern Products</h3>
-                <p>Learn how streamlined APIs improve performance, developer experience, and scalability.</p>
-                <a class="read-more" href="post-2.html">Read article →</a>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-index">03</div>
-              <div>
-                <h3>Using AI Responsibly in Everyday Development</h3>
-                <p>Practical guidance for applying AI tools in code reviews, documentation, and workflow design.</p>
-                <a class="read-more" href="post-3.html">Read article →</a>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-index">04</div>
-              <div>
-                <h3>Best Press Release Distribution Services in 2026</h3>
-                <p>A practical look at how teams can choose a distribution service that actually gets coverage.</p>
-                <a class="read-more" href="https://contributor-posts.github.io/blog/best-press-release-distribution-service-2026.html">Read article →</a>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-index">05</div>
-              <div>
-                <h3>BrowserAgent Review 2026</h3>
-                <p>A hands-on review of BrowserAgent and how it stacks up for automating everyday browser tasks.</p>
-                <a class="read-more" href="https://contributor-posts.github.io/blog/browseragent-review-2026.html">Read article →</a>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-index">06</div>
-              <div>
-                <h3>Building Smarter Software in the Age of AI</h3>
-                <p>How AI-assisted tooling is changing the way teams design, build, and ship software.</p>
-                <a class="read-more" href="https://contributor-posts.github.io/blog/building-smarter-software-in-the-age-of-ai.html">Read article →</a>
-              </div>
-            </div>
-          </div>
-        </section>
+    .cp-latest-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #6b7280;
+      background: #eceae3;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
 
-        <aside>
-          <div class="sidebar-card" id="topics">
-            <h3>Popular Topics</h3>
-            <ul>
-              <li>AI &amp; developer workflows</li>
-              <li>Cloud-native infrastructure</li>
-              <li>Frontend performance</li>
-              <li>Product engineering</li>
-            </ul>
-          </div>
+    .cp-feed-item {
+      display: flex;
+      gap: 26px;
+      padding: 26px 0;
+      border-bottom: 1px solid #e7e6e1;
+      align-items: flex-start;
+    }
 
-          <div class="sidebar-card" id="about">
-            <h3>About Contributor Posts</h3>
-            <p>
-              We publish clear, practical writing for people building ambitious digital products in a fast-moving technology landscape.
-            </p>
-          </div>
+    .cp-feed-img {
+      flex: 0 0 240px;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 16 / 10;
+      background: #eef0f2;
+      display: block;
+    }
 
-          <div class="sidebar-card contact-card">
-            <h3>Want to contribute?</h3>
-            <p>Pitch an article or get in touch with our editorial team.</p>
-            <a class="btn" href="mailto:brandingbuzzagency@gmail.com">Email Us</a>
-          </div>
-        </aside>
+    .cp-feed-img img { transition: transform .35s ease; }
+    .cp-feed-img:hover img { transform: scale(1.02); }
+
+    .cp-feed-body { flex: 1; min-width: 0; }
+
+    .cp-feed-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0;
+    }
+
+    .cp-feed-top .cp-kicker { margin-bottom: 0; }
+
+    .cp-feed-title {
+      margin: 9px 0 9px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 23px;
+      line-height: 1.24;
+      letter-spacing: -0.01em;
+    }
+
+    .cp-feed-title a { color: #17181c; text-decoration: none; }
+    .cp-feed-title a:hover { color: var(--accent); }
+
+    .cp-feed-dek {
+      margin: 0 0 10px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: #5b6470;
+      max-width: 62ch;
+    }
+
+    .cp-feat-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: var(--accent);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────────────────── */
+
+    .cp-about {
+      background: #ffffff;
+      border: 1px solid #e7e6e1;
+      border-radius: 6px;
+      padding: 24px;
+    }
+
+    .cp-about-title {
+      margin: 0 0 12px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .cp-about-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #5b6470;
+    }
+
+    .cp-trending { margin-top: 26px; }
+
+    .cp-trending-hd {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #17181c;
+    }
+
+    .cp-trending-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #17181c;
+    }
+
+    .cp-trend-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid #e7e6e1;
+      text-decoration: none;
+    }
+
+    .cp-trend-rank {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+      color: #dcdbd3;
+      flex: 0 0 30px;
+      transition: color .12s;
+    }
+
+    .cp-trend-item:hover .cp-trend-rank { color: var(--accent); }
+
+    .cp-trend-body { min-width: 0; }
+
+    .cp-trend-title {
+      display: block;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #17181c;
+      transition: color .12s;
+    }
+
+    .cp-trend-item:hover .cp-trend-title { color: var(--accent); }
+
+    .cp-trend-date {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #9aa1ab;
+      font-weight: 500;
+    }
+
+    /* ── Newsletter ──────────────────────────────────────────────────── */
+
+    .cp-newsletter {
+      margin-top: 26px;
+      background: var(--accent);
+      border-radius: 6px;
+      padding: 26px;
+    }
+
+    .cp-nl-title {
+      margin: 0 0 8px;
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    .cp-nl-text {
+      margin: 0 0 16px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cp-nl-form { display: flex; flex-direction: column; gap: 10px; }
+
+    .cp-nl-input {
+      width: 100%;
+      padding: 11px 14px;
+      border: none;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 14px;
+      color: #17181c;
+      outline: none;
+    }
+
+    .cp-nl-btn {
+      width: 100%;
+      padding: 11px 14px;
+      border: none;
+      border-radius: 5px;
+      background: #17181c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .12s;
+    }
+
+    .cp-nl-btn:hover { background: #000000; }
+
+    /* ── Empty state ─────────────────────────────────────────────────── */
+
+    .cp-empty {
+      text-align: center;
+      padding: 6rem 1rem;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────────── */
+
+    .cp-footer {
+      margin-top: 56px;
+      background: #17181c;
+      color: #aab0b8;
+    }
+
+    .cp-footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 52px 28px 28px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .cp-footer-brand {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 600;
+      font-size: 24px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .cp-footer-about {
+      margin: 12px 0 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      max-width: 36ch;
+    }
+
+    .cp-footer-col-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+
+    .cp-footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+
+    .cp-footer-links a { color: #aab0b8; text-decoration: none; }
+    .cp-footer-links a:hover { color: #ffffff; }
+
+    .cp-footer-bottom { border-top: 1px solid #2a2c31; }
+
+    .cp-footer-bottom-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+
+    @media (max-width: 960px) {
+      .cp-sidebar { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .cp-secondary { grid-template-columns: 1fr; gap: 24px; }
+      .cp-feed-item { flex-direction: column; }
+      .cp-feed-img { flex: none; width: 100%; aspect-ratio: 16 / 9; }
+      .cp-masthead-title { font-size: 36px; }
+      .cp-lead-title { font-size: 28px; }
+      .cp-footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .cp-main { padding: 28px 18px 8px; }
+      .cp-masthead-inner { padding: 28px 18px 22px; }
+      .cp-masthead-title { font-size: 28px; }
+      .cp-masthead-sub { font-size: 15px; }
+      .cp-footer-inner { grid-template-columns: 1fr; }
+      .cp-nav-actions { display: none; }
+      .cp-util-links { display: none; }
+    }
+
+    /* ── card-image (kept for postCard compatibility) ────────────────── */
+
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- utility bar -->
+  <div class="cp-util">
+    <div class="cp-util-inner">
+      <span class="cp-util-date">Saturday, August 8, 2026</span>
+      <div class="cp-util-links">
+        <a href="mailto:brandingbuzzagency@gmail.com">Contact</a>
       </div>
     </div>
+  </div>
 
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-brand">Contributor Posts</div>
-        <div class="footer-meta">© 2026 Contributor Posts · Built for thoughtful readers and modern teams.</div>
-        <a class="footer-contact" href="mailto:brandingbuzzagency@gmail.com">brandingbuzzagency@gmail.com</a>
+  <!-- masthead -->
+  <header class="cp-masthead">
+    <div class="cp-masthead-inner">
+      <div class="cp-masthead-tag">Est. 2026 &nbsp;&middot;&nbsp; Independent Writing</div>
+      <h1 class="cp-masthead-title">Contributor Posts</h1>
+      <p class="cp-masthead-sub">Reviews, guides, and reporting from independent contributors.</p>
+    </div>
+  </header>
+
+  <nav class="cp-nav">
+  <div class="cp-nav-inner">
+    <div class="cp-nav-links">
+      <a href="#top"      class="cp-nav-link cp-nav-active">Home</a>
+      <a href="#latest"   class="cp-nav-link">Latest</a>
+      <a href="#trending" class="cp-nav-link">Trending</a>
+    </div>
+    <div class="cp-nav-actions">
+      <div class="cp-search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
+        <span>Search</span>
       </div>
-    </footer>
-  </body>
+    </div>
+  </div>
+</nav>
+
+  <!-- main two-column layout -->
+  <main class="cp-main" id="top">
+    <div class="cp-content">
+      <article class="cp-lead">
+    <a href="https://contributor-posts.github.io/blog/the-rising-cost-of-selling-on-amazon-where-i-tell-brands-to-look-for-savings" class="cp-lead-img"><img src="https://s3.amazonaws.com/contributor-posts/github-posts/images/the-rising-cost-of-selling-on-amazon-where-i-tell-brands-to-look-for-savings/img-1786188222009-fdzk5vu5p.png" alt="The Rising Cost of Selling on Amazon: Where I Tell Brands to Look for Savings" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"></a>
+    <div class="cp-kicker">General</div>
+    <h2 class="cp-lead-title"><a href="https://contributor-posts.github.io/blog/the-rising-cost-of-selling-on-amazon-where-i-tell-brands-to-look-for-savings">The Rising Cost of Selling on Amazon: Where I Tell Brands to Look for Savings</a></h2>
+    
+    <div class="cp-meta">August 8, 2026</div>
+  </article>
+<section class="cp-latest" id="latest">
+    <div class="cp-latest-hd">
+      <h2 class="cp-latest-title">Latest Stories</h2>
+      <span class="cp-latest-pill">1 PUBLISHED</span>
+    </div>
+    <p class="cp-meta" style="padding:26px 0;">No additional stories yet.</p>
+  </section>
+    </div>
+    <aside class="cp-sidebar">
+      <section class="cp-trending" id="trending">
+    <div class="cp-trending-hd">
+      <h4 class="cp-trending-label">Trending Now</h4>
+    </div>
+    <a href="https://contributor-posts.github.io/blog/the-rising-cost-of-selling-on-amazon-where-i-tell-brands-to-look-for-savings" class="cp-trend-item">
+    <span class="cp-trend-rank">1</span>
+    <span class="cp-trend-body">
+      <span class="cp-trend-title">The Rising Cost of Selling on Amazon: Where I Tell Brands to Look for Savings</span>
+      <span class="cp-trend-date">August 8, 2026</span>
+    </span>
+  </a>
+  </section>
+    </aside>
+  </main>
+
+  <!-- footer -->
+  <footer class="cp-footer">
+    <div class="cp-footer-inner">
+      <div>
+        <div class="cp-footer-brand">Contributor Posts</div>
+        <p class="cp-footer-about">Independent writing on business, technology, finance, and culture &mdash; published openly by contributors.</p>
+      </div>
+      <div>
+        <div class="cp-footer-col-label">Sections</div>
+        <div class="cp-footer-links">
+          <a href="#top">Home</a>
+          <a href="#latest">Latest Stories</a>
+          <a href="#trending">Trending</a>
+        </div>
+      </div>
+      <div>
+        <div class="cp-footer-col-label">More</div>
+        <div class="cp-footer-links">
+          <a href="mailto:brandingbuzzagency@gmail.com">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="cp-footer-bottom">
+      <div class="cp-footer-bottom-inner">
+        <span>&copy; 2026 Contributor Posts. All rights reserved.</span>
+        <span>1 article &middot; Updated August 8, 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
